@@ -36,8 +36,6 @@ statements, like<br>
 &nbsp;&nbsp;&nbsp;&nbsp;  customers_02.csv - third select (Chicago)<br>
 
 
-
-
 -- Note for Windows:
  Works perfectly with MinGW or its clones. Just run make.
  Should work with other compilers, but not tested.
@@ -45,9 +43,11 @@ statements, like<br>
 -- Note for Linux:
  Written and tested with unixODBC in mind. Possibly will work with other ODBC
 libraries. If someone willing to test - please send me a letter.
- The makefile uses odbc_config tool, which comes standard on Red Hat, but by
-some reason is not available from the box in Debian offsprings (Ubuntu, Mint).
-But it is possible to find the script source on the web.
+
+ There is something strange with location of libraries on Red Hat, so if
+compiler gives you errors about inabiluity to find sql.h or libodbc.a,
+uncomment lines in the makefile which use odbc_config tool. Not needed on
+Debian and his offsprings.
 
 
 --- TODO
