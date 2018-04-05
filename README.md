@@ -2,36 +2,38 @@
  Copyright 2016-2018, George Brink <siberianowl@gmail.com>
 
 
- Connects to database through specified DSN.
- Extracts specified table, view, or query into a text file.
- Can specify delimiters and (if necessary) qoute the individual fields.
+<p>Connects to database through specified DSN.
+<p>Extracts specified table, view, or query into a text file.
+<p>Can specify delimiters and (if necessary) qoute the individual fields.
 
- Multiple resultsets can be handled. The first one is stored in the
+<p>Multiple resultsets can be handled. The first one is stored in the
 specified file, the second and all other are stored in files with names
 like "name-XX.ext" where 'name' and 'ext' are taken from the original
 output file.
 
-Examples of usage:
- Assuming you have DSN (named MyDB) with saved user id and password (or
-database server does not require them), you can do:
+<p>Examples of usage:
+ 
+- Assuming you have DSN (named MyDB) with saved user id and password (or
+database server does not require them), you can do:<br>
    export2csv "select * from Customers" customers.csv -DMyDB
- Or in a shortened form:
-   export2csv Customers customers.csv -DMyDB
+   
+- Or in a shortened form:<br>
+   export2csv Customers customers.csv -DMyDB<br>
  In this case, the tool recognize that Customers is a name of the table and
 prepend it with "select * from" automatically.
 
- Another example, is if you have a script in a file with multiple select
-statements, like
-  ------ get_selected_customers.sql
-  select * from Customers where City='New York';
-  select * from Customers where City='Boston';
-  select * from Customers where City='Chicago';
- Now run this script through export2csv
-   export2csv get_selected_customers.sql customers.csv -DMyDB
- And you will receive three files:
-  customers.csv    - data from the first select (New York)
-  customers_01.csv - second select (Boston)
-  customers_02.csv - third select (Chicago)
+- Another example, is if you have a script in a file with multiple select
+statements, like<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;------ get_selected_customers.sql<br>
+ &nbsp;&nbsp;&nbsp;&nbsp; select * from Customers where City='New York';<br>
+ &nbsp;&nbsp;&nbsp;&nbsp; select * from Customers where City='Boston';<br>
+ &nbsp;&nbsp;&nbsp;&nbsp; select * from Customers where City='Chicago';<br>
+ Now run this script through export2csv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;   export2csv get_selected_customers.sql customers.csv -DMyDB<br>
+ And you will receive three files:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  customers.csv    - data from the first select (New York)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  customers_01.csv - second select (Boston)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  customers_02.csv - third select (Chicago)<br>
 
 
 
