@@ -10,8 +10,11 @@ ifeq ($(OS),Windows_NT)
 	PROJECT := $(PROJECT).exe
 else
 	TARGETDIR = /app/bin
-	LIBS = $(shell odbc_config --libs)
-	INCLUDE = $(shell odbc_config --cflags)
+	LIBS = -lodbc
+
+	# for Red Hat you need to uncomment these:
+	#LIBS = $(shell odbc_config --libs)
+	#INCLUDE = $(shell odbc_config --cflags)
 endif
 OBJS = $(patsubst %.c, %.o, $(SOURCES))
 
