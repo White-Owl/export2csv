@@ -1,2 +1,2 @@
 # export2csv
-A tool to 
+A small tool which executes a query against ODBC database and writes it to a file.
